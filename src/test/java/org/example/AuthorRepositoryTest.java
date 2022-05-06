@@ -16,10 +16,9 @@ import static org.testcontainers.containers.wait.strategy.Wait.forLogMessage;
 
 public class AuthorRepositoryTest {
 
+
     @ClassRule
-    public static PostgreSQLContainer postgres =
-            new PostgreSQLContainer()
-                    .withPassword("mysecretpassword");
+    public static PostgreSQLContainer postgres = new PostgreSQLContainer("postgres:11.1");
 
     @Test
     public void save_should_set_id() throws Exception {
