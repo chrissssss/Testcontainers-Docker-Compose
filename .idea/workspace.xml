@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f46fe43d-af51-4dfc-a6ef-19a376918b3f" name="Changes" comment="CLEANUP removed unneccessary classes" />
+    <list default="true" id="f46fe43d-af51-4dfc-a6ef-19a376918b3f" name="Changes" comment="CLEANUP changed used testcontainer to get rid of warning">
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/TestcontainersTestcode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/AuthorRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/AuthorRepositoryTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -105,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651869636271</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="CLEANUP changed used testcontainer to get rid of warning">
+      <created>1651869865763</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1651869865763</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -123,6 +133,7 @@
     <MESSAGE value="FEATURE Introduce junit jupyter and testcontainers" />
     <MESSAGE value="FEATURE Test with testcontainers (postgresql)" />
     <MESSAGE value="CLEANUP removed unneccessary classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="CLEANUP removed unneccessary classes" />
+    <MESSAGE value="CLEANUP changed used testcontainer to get rid of warning" />
+    <option name="LAST_COMMIT_MESSAGE" value="CLEANUP changed used testcontainer to get rid of warning" />
   </component>
 </project>
