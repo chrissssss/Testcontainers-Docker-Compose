@@ -1,56 +1,45 @@
-package org.example;
+package org.example
 
-import java.sql.*;
-import java.util.*;
+import java.sql.Connection
+import java.sql.SQLException
+import java.sql.Statement
 
-import static java.sql.Statement.RETURN_GENERATED_KEYS;
 
-public class AuthorRepository {
+class AuthorRepository(private val connection: Connection) {
 
-  private static final String INSERT_STATEMENT =
-    "INSERT INTO authors (name ) VALUES (?)";
+    private val INSERT_STATEMENT = "INSERT INTO authors (name ) VALUES (?)"
+    private val READ_ALL_STATEMENT = "SELECT id, name FROM authors"
 
-  private static final String READ_ALL_STATEMENT =
-    "SELECT id, name FROM authors";
-
-  private final Connection connection;
-
-  public AuthorRepository(Connection connection) {
-    this.connection = connection;
-  }
-
-  public void save(Author author) throws SQLException {
-    try (PreparedStatement pstmt = connection
-        .prepareStatement(INSERT_STATEMENT, RETURN_GENERATED_KEYS)) {
-      pstmt.setString(1, author.getName());
-
-      int affectedRows = pstmt.executeUpdate();
-      if (affectedRows == 0) {
-        throw new SQLException("Could not save author");
-      }
-
-      try (ResultSet generatedKeys = pstmt.getGeneratedKeys()) {
-        if (generatedKeys.next()) {
-          author.setId(generatedKeys.getLong(1));
-        } else {
-          throw new SQLException("Could not save author");
+    @Throws(SQLException::class)
+    fun save(author: Author): Author {
+        with(connection.prepareStatement(INSERT_STATEMENT, Statement.RETURN_GENERATED_KEYS)) {
+            setString(1, author.name)
+            val affectedRows = executeUpdate()
+            if (affectedRows == 0) {
+                throw SQLException("Could not save author")
+            }
+            with(generatedKeys) {
+                if (next()) {
+                    return author.copy(id = getLong(1))
+                } else {
+                    throw SQLException("Could not save author")
+                }
+            }
         }
-      }
     }
-  }
 
-  public List<Author> findAll() throws SQLException {
-    final List<Author> authors = new ArrayList<>();
-    try (PreparedStatement pstmt = connection
-        .prepareStatement(READ_ALL_STATEMENT);
-        ResultSet rs = pstmt.executeQuery()) {
-      while (rs.next()) {
-        Author author = new Author(rs.getString("name"));
-        author.setId(rs.getLong("id"));
-        authors.add(author);
-      }
+    @Throws(SQLException::class)
+    fun findAll(): List<Author> {
+        val authors: MutableList<Author> = ArrayList()
+        with(connection.prepareStatement(READ_ALL_STATEMENT)) {
+            with(executeQuery()) {
+                while (next()) {
+                    val author = Author(name = getString("name"), id = getLong("id"))
+                    authors.add(author)
+                }
+            }
+        }
+        return authors
     }
-    return authors;
-  }
 
 }
