@@ -2,14 +2,12 @@ import org.junit.ClassRule
 import org.testcontainers.containers.PostgreSQLContainer
 import java.sql.Connection
 import java.sql.DriverManager
-import java.sql.SQLException
 
 open class TestcontainersTestcode {
     private fun create(): Connection {
-        val url = postgres.jdbcUrl
-        val user = postgres.username
-        val password = postgres.password
-        return DriverManager.getConnection(url, user, password)
+        with(postgres) {
+            return DriverManager.getConnection(jdbcUrl, username, password)
+        }
     }
 
     protected fun withConnection(c: ConnectionConsumer) {
@@ -32,6 +30,6 @@ open class TestcontainersTestcode {
     companion object {
         @ClassRule
         @JvmField
-        var postgres: PostgreSQLContainer<*> = PostgreSQLContainer<Nothing>("postgres:11.1")
+        var postgres = PostgreSQLContainer<Nothing>("postgres:11.1")
     }
 }
