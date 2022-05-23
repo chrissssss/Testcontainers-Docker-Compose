@@ -10,7 +10,6 @@ class AuthorRepository(private val connection: Connection) {
     private val INSERT_STATEMENT = "INSERT INTO authors (name ) VALUES (?)"
     private val READ_ALL_STATEMENT = "SELECT id, name FROM authors"
 
-    @Throws(SQLException::class)
     fun save(author: Author): Author {
         with(connection.prepareStatement(INSERT_STATEMENT, Statement.RETURN_GENERATED_KEYS)) {
             setString(1, author.name)
@@ -28,7 +27,6 @@ class AuthorRepository(private val connection: Connection) {
         }
     }
 
-    @Throws(SQLException::class)
     fun findAll(): List<Author> {
         val authors: MutableList<Author> = ArrayList()
         with(connection.prepareStatement(READ_ALL_STATEMENT)) {

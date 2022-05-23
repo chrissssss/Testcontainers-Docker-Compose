@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f46fe43d-af51-4dfc-a6ef-19a376918b3f" name="Changes" comment="CLEANUP">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/Author.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/AuthorRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/AuthorRepositoryTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/TestcontainersTestcode.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="f46fe43d-af51-4dfc-a6ef-19a376918b3f" name="Changes" comment="CLEANUP removed clutter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Author.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AuthorRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/AuthorRepositoryTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/TestcontainersTestcode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/AuthorRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/AuthorRepository.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +152,21 @@
       <option name="project" value="LOCAL" />
       <updated>1653330385883</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="FEATURE Reworked to kotlin with immutable dataclass">
+      <created>1653341394087</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1653341394087</updated>
+    </task>
+    <task id="LOCAL-00008" summary="CLEANUP removed clutter">
+      <created>1653341823564</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1653341823564</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -182,6 +187,8 @@
     <MESSAGE value="CLEANUP changed used testcontainer to get rid of warning" />
     <MESSAGE value="CLEANUP refactored code to separate testcode from setup code" />
     <MESSAGE value="CLEANUP" />
-    <option name="LAST_COMMIT_MESSAGE" value="CLEANUP" />
+    <MESSAGE value="FEATURE Reworked to kotlin with immutable dataclass" />
+    <MESSAGE value="CLEANUP removed clutter" />
+    <option name="LAST_COMMIT_MESSAGE" value="CLEANUP removed clutter" />
   </component>
 </project>
