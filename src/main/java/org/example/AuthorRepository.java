@@ -8,7 +8,7 @@ import static java.sql.Statement.RETURN_GENERATED_KEYS;
 public class AuthorRepository {
 
   private static final String INSERT_STATEMENT =
-    "INSERT INTO authors (name) VALUES (?)";
+    "INSERT INTO authors (name ) VALUES (?)";
 
   private static final String READ_ALL_STATEMENT =
     "SELECT id, name FROM authors";

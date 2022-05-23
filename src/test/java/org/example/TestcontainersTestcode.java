@@ -27,10 +27,8 @@ public class TestcontainersTestcode {
 
     private void setup(Connection c) throws SQLException {
         String dropStmt = "DROP TABLE IF EXISTS authors";
-        String createStmt =
-                "CREATE TABLE authors (id SERIAL, name varchar(255))";
-        try (PreparedStatement drop = c.prepareStatement(dropStmt);
-             PreparedStatement create = c.prepareStatement(createStmt)) {
+        String createStmt = "CREATE TABLE authors (id SERIAL, name varchar(255))";
+        try (PreparedStatement drop = c.prepareStatement(dropStmt); PreparedStatement create = c.prepareStatement(createStmt)) {
             drop.execute();
             create.execute();
         }

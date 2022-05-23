@@ -7,8 +7,6 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class AuthorRepositoryTest extends TestcontainersTestcode {
-
-
     @Test
     public void save_should_set_id() throws Exception {
         withConnection(connection -> {
