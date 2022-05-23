@@ -5,7 +5,6 @@ import org.junit.Test
 
 class AuthorRepositoryTest : TestcontainersTestcode() {
     @Test
-    @Throws(Exception::class)
     fun save_should_set_id() {
         withConnection { connection ->
             val sut = AuthorRepository(connection)
@@ -16,7 +15,6 @@ class AuthorRepositoryTest : TestcontainersTestcode() {
     }
 
     @Test
-    @Throws(Exception::class)
     fun findAll_should_contain_saved_author() {
         withConnection { connection ->
             val sut = AuthorRepository(connection)

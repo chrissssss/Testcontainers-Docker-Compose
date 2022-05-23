@@ -5,7 +5,6 @@ import java.sql.DriverManager
 import java.sql.SQLException
 
 open class TestcontainersTestcode {
-    @Throws(Exception::class)
     private fun create(): Connection {
         val url = postgres.jdbcUrl
         val user = postgres.username
@@ -13,14 +12,12 @@ open class TestcontainersTestcode {
         return DriverManager.getConnection(url, user, password)
     }
 
-    @Throws(Exception::class)
     protected fun withConnection(c: ConnectionConsumer) {
         val connection = create()
         setup(connection)
         c.executeWith(connection)
     }
 
-    @Throws(SQLException::class)
     private fun setup(c: Connection) {
         val dropStmt = "DROP TABLE IF EXISTS authors"
         val createStmt = "CREATE TABLE authors (id SERIAL, name varchar(255))"
@@ -29,12 +26,12 @@ open class TestcontainersTestcode {
     }
 
     fun interface ConnectionConsumer {
-        @Throws(Exception::class)
         fun executeWith(connection: Connection)
     }
 
     companion object {
-        @ClassRule @JvmField
+        @ClassRule
+        @JvmField
         var postgres: PostgreSQLContainer<*> = PostgreSQLContainer<Nothing>("postgres:11.1")
     }
 }
