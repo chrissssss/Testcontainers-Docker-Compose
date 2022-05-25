@@ -10,21 +10,17 @@ open class TestcontainersTestcode {
         }
     }
 
-    protected fun withConnection(c: ConnectionConsumer) {
+    protected fun withConnection(func: (Connection) -> Unit) {
         val connection = create()
         setup(connection)
-        c.executeWith(connection)
+        func.invoke(connection)
     }
 
-    private fun setup(c: Connection) {
+    private fun setup(connection: Connection) {
         val dropStmt = "DROP TABLE IF EXISTS authors"
         val createStmt = "CREATE TABLE authors (id SERIAL, name varchar(255))"
-        c.prepareStatement(dropStmt).execute()
-        c.prepareStatement(createStmt).execute()
-    }
-
-    fun interface ConnectionConsumer {
-        fun executeWith(connection: Connection)
+        connection.prepareStatement(dropStmt).execute()
+        connection.prepareStatement(createStmt).execute()
     }
 
     companion object {
